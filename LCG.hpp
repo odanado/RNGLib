@@ -1,5 +1,5 @@
-#ifndef INCLUDE_LCG_HPP
-#define INCLUDE_LCG_HPP
+#ifndef INCLUDED_LCG_HPP
+#define INCLUDED_LCG_HPP
 #include <cstdint>
 
 namespace RNGLib {
