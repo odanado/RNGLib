@@ -1,3 +1,5 @@
+#ifndef INCLUDE_LCG_HPP
+#define INCLUDE_LCG_HPP
 #include <cstdint>
 
 namespace RNGLib {
@@ -84,3 +86,5 @@ typedef LCG<uint32_t, 0x41C64E6D, 0x6073, 0xFFFFFFFF> LCG3Gen;
 typedef LCG<uint64_t, 0x5D583D6D6C078979, 0x26A693, 0xFFFFFFFFFFFFFFFF> LCG5GenDaily;
 
 } // end RNGLib
+
+#endif
