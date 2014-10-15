@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2014 odan
+ * License: MIT License
+ */
+
+
 #ifndef INCLUDED_LCG_HPP
 #define INCLUDED_LCG_HPP
 #include <cstdint>
