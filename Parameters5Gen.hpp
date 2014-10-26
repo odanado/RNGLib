@@ -60,36 +60,36 @@ public:
     void set_key(uint32_t key_) { key = key_; }
     void set_Timer0(uint32_t tt) { Timer0 = tt; }
 
-    uint32_t get_MAC_add1() { return MAC_add1; }
-    uint32_t get_MAC_add2() { return MAC_add2; }
-    uint32_t get_MAC_add3() { return MAC_add3; }
-    uint32_t get_MAC_add4() { return MAC_add4; }
-    uint32_t get_MAC_add5() { return MAC_add5; }
-    uint32_t get_MAC_add6() { return MAC_add6; }
+    uint32_t get_MAC_add1() const { return MAC_add1; }
+    uint32_t get_MAC_add2() const { return MAC_add2; }
+    uint32_t get_MAC_add3() const { return MAC_add3; }
+    uint32_t get_MAC_add4() const { return MAC_add4; }
+    uint32_t get_MAC_add5() const { return MAC_add5; }
+    uint32_t get_MAC_add6() const { return MAC_add6; }
 
-    uint32_t get_year() { return year; }
-    uint32_t get_month() { return month; }
-    uint32_t get_day() { return day; }
-    uint32_t get_hour() { return hour; }
-    uint32_t get_minute() { return minute; }
-    uint32_t get_sec() { return sec; }
-    uint32_t get_week() {
+    uint32_t get_year() const { return year; }
+    uint32_t get_month() const { return month; }
+    uint32_t get_day() const { return day; }
+    uint32_t get_hour() const { return hour; }
+    uint32_t get_minute() const { return minute; }
+    uint32_t get_sec() const { return sec; }
+    uint32_t get_week() const {
         return  ((2000+year-(month<3)) + (2000+year-(month<3))/4 -
             (2000+year-(month<3))/100 + (2000+year-(month<3))/400 +
             (13*(month+(month<3)*12)+8)/5 + day) % 7;
     }
 
-    uint32_t get_nazo1() { return nazo1; }
-    uint32_t get_nazo2() { return nazo2; }
-    uint32_t get_nazo3() { return nazo3; }
-    uint32_t get_nazo4() { return nazo4; }
-    uint32_t get_nazo5() { return nazo5; }
+    uint32_t get_nazo1() const { return nazo1; }
+    uint32_t get_nazo2() const { return nazo2; }
+    uint32_t get_nazo3() const { return nazo3; }
+    uint32_t get_nazo4() const { return nazo4; }
+    uint32_t get_nazo5() const { return nazo5; }
 
-    uint32_t get_VCount() { return VCount; }
-    uint32_t get_Timer0() { return Timer0; }
-    uint32_t get_GxStat() { return GxStat; }
-    uint32_t get_Frame() { return Frame; }
-    uint32_t get_key() { return key; }
+    uint32_t get_VCount() const { return VCount; }
+    uint32_t get_Timer0() const { return Timer0; }
+    uint32_t get_GxStat() const { return GxStat; }
+    uint32_t get_Frame() const { return Frame; }
+    uint32_t get_key() const { return key; }
 
 
 };
