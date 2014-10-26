@@ -64,6 +64,7 @@ public:
     }
 
     void set_key(uint32_t key_) { key = key_; }
+    void set_timer0(uint32_t Timer0_) { Timer0 = Timer0_; }
 
 
 };
