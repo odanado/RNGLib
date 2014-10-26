@@ -49,21 +49,21 @@ public:
         MAC_add6 = m6;
     }
 
-    inline void set_year(uint32_t yy) { year = yy; }
-    inline void set_month(uint32_t mm) { month = mm; }
-    inline void set_day(uint32_t dd) { day = dd; }
+    void set_year(uint32_t yy) { year = yy; }
+    void set_month(uint32_t mm) { month = mm; }
+    void set_day(uint32_t dd) { day = dd; }
 
-    inline void set_hour(uint32_t hh) { hour = hh; }
-    inline void set_minute(uint32_t mi) { minute = mi; }
-    inline void set_sec(uint32_t se) { sec = se; }
+    void set_hour(uint32_t hh) { hour = hh; }
+    void set_minute(uint32_t mi) { minute = mi; }
+    void set_sec(uint32_t se) { sec = se; }
 
-    inline void update_week() {
+    void update_week() {
         week = ((2000+year-(month<3)) + (2000+year-(month<3))/4 -
             (2000+year-(month<3))/100 + (2000+year-(month<3))/400 +
             (13*(month+(month<3)*12)+8)/5 + day) % 7;
     }
 
-    inline void set_key(uint32_t key_) { key = key_; }
+    void set_key(uint32_t key_) { key = key_; }
 
 
 };
