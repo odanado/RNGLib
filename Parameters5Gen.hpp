@@ -10,17 +10,17 @@ namespace RNGLib {
 template<uint32_t nazo1_, uint32_t nazo2_, uint32_t nazo3_, uint32_t nazo4_, uint32_t nazo5_,
          uint32_t VCount_, uint32_t GxStat_, uint32_t Frame_>
 class Parameters5Gen {
+public:
+    static constexpr uint32_t nazo1 = nazo1_;
+    static constexpr uint32_t nazo2 = nazo2_;
+    static constexpr uint32_t nazo3 = nazo3_;
+    static constexpr uint32_t nazo4 = nazo4_;
+    static constexpr uint32_t nazo5 = nazo5_;
+
+    static constexpr uint32_t VCount = VCount_;
+    static constexpr uint32_t GxStat = GxStat_;
+    static constexpr uint32_t Frame  = Frame_;
 private:
-    uint32_t nazo1 = nazo1_;
-    uint32_t nazo2 = nazo2_;
-    uint32_t nazo3 = nazo3_;
-    uint32_t nazo4 = nazo4_;
-    uint32_t nazo5 = nazo5_;
-
-    uint32_t VCount = VCount_;
-    uint32_t GxStat = GxStat_;
-    uint32_t Frame  = Frame_;
-
     uint32_t Timer0;
     uint32_t MAC_add1;
     uint32_t MAC_add2;
