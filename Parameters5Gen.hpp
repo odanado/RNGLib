@@ -58,8 +58,9 @@ public:
     inline void set_sec(uint32_t se) { sec = se; }
 
     inline void update_week() {
-        // TODO 過去に書いたコードをコピペする
-
+        week = ((2000+year-(month<3)) + (2000+year-(month<3))/4 -
+            (2000+year-(month<3))/100 + (2000+year-(month<3))/400 +
+            (13*(month+(month<3)*12)+8)/5 + day) % 7;
     }
 
     inline void set_key(uint32_t key_) { key = key_; }
