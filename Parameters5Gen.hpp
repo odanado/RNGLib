@@ -39,7 +39,7 @@ private:
     uint32_t key;
 
 public:
-    inline void set_MAC_add(uint32_t m1, uint32_t m2, uint32_t m3, 
+    void set_MAC_add(uint32_t m1, uint32_t m2, uint32_t m3, 
             uint32_t m4, uint32_t m5, uint32_t m6) {
         MAC_add1 = m1;
         MAC_add2 = m2;
