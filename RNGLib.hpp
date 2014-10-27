@@ -6,6 +6,9 @@
 #ifndef INCLUDED_RNGLIB_HPP
 #define INCLUDED_RNGLIB_HPP
 
-#include "LCG.hpp"
+#include "RNGLib/LCG.hpp"
+#include "RNGLib/Calc5GenSeed.hpp"
+#include "RNGLib/Parameters5Gen.hpp"
+#include "RNGLib/MT.hpp"
 
 #endif
