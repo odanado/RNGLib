@@ -93,6 +93,10 @@ public:
 
 
 };
+typedef Parameters5Gen<0x2215f10, 0x221600c, 0x221600c, 0x2216058, 0x2216058, 0x60, 0x6000000, 6> ParametersB1Ja;
+typedef Parameters5Gen<0x2215f30, 0x221602c, 0x221602c, 0x2216078, 0x2216078, 0x60, 0x6000000, 6> ParametersW1Ja;
+
+ 
 } // end RNGLib
 
 #endif
