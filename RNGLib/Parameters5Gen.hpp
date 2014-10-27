@@ -8,7 +8,7 @@
 
 namespace RNGLib {
 template<uint32_t nazo1_, uint32_t nazo2_, uint32_t nazo3_, uint32_t nazo4_, uint32_t nazo5_,
-         uint32_t VCount_, uint32_t GxStat_, uint32_t Frame_>
+         uint32_t VCount_, uint32_t GxStat_, uint32_t Frame_, uint32_t Timer0Min_, uint32_t Timer0Max_>
 class Parameters5Gen {
 public:
     static constexpr uint32_t nazo1 = nazo1_;
@@ -20,8 +20,10 @@ public:
     static constexpr uint32_t VCount = VCount_;
     static constexpr uint32_t GxStat = GxStat_;
     static constexpr uint32_t Frame  = Frame_;
+    static constexpr uint32_t Timer0Min = Timer0Min_;
+    static constexpr uint32_t Timer0Max = Timer0Max_;
 private:
-    uint32_t Timer0;
+    uint32_t Timer0 = Timer0Min_;
     uint32_t MAC_add1;
     uint32_t MAC_add2;
     uint32_t MAC_add3;
@@ -35,7 +37,7 @@ private:
     uint32_t minute;
     uint32_t sec;
 
-    uint32_t key;
+    uint32_t key = 0x2fff;
 
 public:
     void set_MAC_add(uint32_t m1, uint32_t m2, uint32_t m3, 
@@ -91,10 +93,13 @@ public:
     uint32_t get_Frame() const { return Frame; }
     uint32_t get_key() const { return key; }
 
+    uint32_t get_Timer0Min() const { return Timer0Min; }
+    uint32_t get_Timer0Max() const { return Timer0Max; }
+
 
 };
-typedef Parameters5Gen<0x2215f10, 0x221600c, 0x221600c, 0x2216058, 0x2216058, 0x60, 0x6000000, 6> ParametersB1Ja;
-typedef Parameters5Gen<0x2215f30, 0x221602c, 0x221602c, 0x2216078, 0x2216078, 0x60, 0x6000000, 6> ParametersW1Ja;
+typedef Parameters5Gen<0x2215f10, 0x221600c, 0x221600c, 0x2216058, 0x2216058, 0x60, 0x6000000, 6, 0xc79, 0xc7a> ParametersB1Ja;
+typedef Parameters5Gen<0x2215f30, 0x221602c, 0x221602c, 0x2216078, 0x2216078, 0x60, 0x6000000, 6, 0xc68, 0xc69> ParametersW1Ja;
 
  
 } // end RNGLib
