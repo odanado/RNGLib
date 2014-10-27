@@ -7,6 +7,6 @@
 #define INCLUDED_MT_HPP
 #include <random>
 namespace RNGLib {
-    typedef std::mt19937 mt;
+    typedef std::mt19937 MT;
 } // end RNGLib
 #endif

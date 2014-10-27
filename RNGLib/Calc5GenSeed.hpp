@@ -40,7 +40,7 @@ private:
             (((val>>16)&0xff)<<8) | ((val>>24)&0xff);
     }
 
-    uint32_t to_BCD(uint32_t val) const {
+    uint32_t to_bcd(uint32_t val) const {
         return ((val/10)<<4) | (val%10);
     }
     uint32_t sha1_circular_shift(uint32_t bits, uint32_t word) const {
@@ -59,32 +59,31 @@ public:
         W[3] = to_uint32_little_endian(paramers.get_nazo4());
         W[4] = to_uint32_little_endian(paramers.get_nazo5());
         W[5] = to_uint32_little_endian(
-                    (paramers.get_VCount()<<16) | paramers.get_Timer0()
+                    (paramers.get_vcount()<<16) | paramers.get_timer0()
                 );
-        W[6] = (paramers.get_MAC_add5() << 8) | paramers.get_MAC_add6();
+        W[6] = (paramers.get_mac_add5() << 8) | paramers.get_mac_add6();
         W[7] = to_uint32_little_endian(
-                    paramers.get_GxStat() ^ paramers.get_Frame() ^
-                    ((paramers.get_MAC_add4()<<24) | 
-                    (paramers.get_MAC_add3()<<16) |
-                    (paramers.get_MAC_add2()<<8 ) | 
-                    (paramers.get_MAC_add1()))
+                    paramers.get_gxstat() ^ paramers.get_frame() ^
+                    ((paramers.get_mac_add4()<<24) | 
+                    (paramers.get_mac_add3()<<16) |
+                    (paramers.get_mac_add2()<<8 ) | 
+                    (paramers.get_mac_add1()))
                 );
-        W[8] = (to_BCD(paramers.get_year())  << 24) | 
-               (to_BCD(paramers.get_month()) << 16) |
-               (to_BCD(paramers.get_day()) << 8) |
+        W[8] = (to_bcd(paramers.get_year())  << 24) | 
+               (to_bcd(paramers.get_month()) << 16) |
+               (to_bcd(paramers.get_day()) << 8) |
                 paramers.get_week();
-        W[9] = ((to_BCD(paramers.get_hour()) |
+        W[9] = ((to_bcd(paramers.get_hour()) |
                ((12<=paramers.get_hour())<<6)) << 24) |
-               (to_BCD(paramers.get_minute()) << 16) |
-               (to_BCD(paramers.get_sec()) << 8);
+               (to_bcd(paramers.get_minute()) << 16) |
+               (to_bcd(paramers.get_sec()) << 8);
         W[10] = 0x00000000;
         W[11] = 0x00000000;
         W[12] = to_uint32_little_endian(paramers.get_key());
         W[13] = 0x80000000;
         W[14] = 0x00000000;
         W[15] = 0x000001A0;
-        for (t = 16; t < 80; t++)
-        {
+        for (t = 16; t < 80; t++) {
             W[t] = sha1_circular_shift(1, W[t-3] ^ W[t-8] ^ W[t-14] ^ W[t-16]);
         }
 
@@ -95,8 +94,7 @@ public:
         E = H4;
 
 
-        for (t = 0; t < 20; t++)
-        {
+        for (t = 0; t < 20; t++) {
             temp =  sha1_circular_shift(5, A) +((B & C) | ((~B) & D)) + E + W[t] + K0;
             E = D;
             D = C;
@@ -105,8 +103,7 @@ public:
             A = temp;
         }
 
-        for (t = 20; t < 40; t++)
-        {
+        for (t = 20; t < 40; t++) {
             temp = sha1_circular_shift(5, A) + (B ^ C ^ D) + E + W[t] + K1;
             E = D;
             D = C;
@@ -115,8 +112,7 @@ public:
             A = temp;
         }
 
-        for (t = 40; t < 60; t++)
-        {
+        for (t = 40; t < 60; t++) {
             temp = sha1_circular_shift(5, A) +
                 ((B & C) | (B & D) | (C & D)) + E + W[t] + K2;
             E = D;
@@ -126,8 +122,7 @@ public:
             A = temp;
         }
 
-        for (t = 60; t < 80; t++)
-        {
+        for (t = 60; t < 80; t++) {
             temp = sha1_circular_shift(5, A) + (B ^ C ^ D) + E + W[t] + K3;
             E = D;
             D = C;

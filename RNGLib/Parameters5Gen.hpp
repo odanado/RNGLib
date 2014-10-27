@@ -8,7 +8,7 @@
 
 namespace RNGLib {
 template<uint32_t nazo1_, uint32_t nazo2_, uint32_t nazo3_, uint32_t nazo4_, uint32_t nazo5_,
-         uint32_t VCount_, uint32_t GxStat_, uint32_t Frame_, uint32_t Timer0Min_, uint32_t Timer0Max_>
+         uint32_t vcount_, uint32_t gxstat_, uint32_t frame_, uint32_t timer0_min_, uint32_t timer0_max_>
 class Parameters5Gen {
 public:
 #ifdef _MSC_VER
@@ -18,11 +18,11 @@ public:
     static const uint32_t nazo4 = nazo4_;
     static const uint32_t nazo5 = nazo5_;
 
-    static const uint32_t VCount = VCount_;
-    static const uint32_t GxStat = GxStat_;
-    static const uint32_t Frame  = Frame_;
-    static const uint32_t Timer0Min = Timer0Min_;
-    static const uint32_t Timer0Max = Timer0Max_;
+    static const uint32_t vcount = vcount_;
+    static const uint32_t gxstat = gxstat_;
+    static const uint32_t frame  = frame_;
+    static const uint32_t timer0_min = timer0_min_;
+    static const uint32_t timer0_max = timer0_max_;
 #else
     static constexpr uint32_t nazo1 = nazo1_;
     static constexpr uint32_t nazo2 = nazo2_;
@@ -30,20 +30,20 @@ public:
     static constexpr uint32_t nazo4 = nazo4_;
     static constexpr uint32_t nazo5 = nazo5_;
 
-    static constexpr uint32_t VCount = VCount_;
-    static constexpr uint32_t GxStat = GxStat_;
-    static constexpr uint32_t Frame  = Frame_;
-    static constexpr uint32_t Timer0Min = Timer0Min_;
-    static constexpr uint32_t Timer0Max = Timer0Max_;
+    static constexpr uint32_t vcount = vcount_;
+    static constexpr uint32_t gxstat = gxstat_;
+    static constexpr uint32_t frame  = frame_;
+    static constexpr uint32_t timer0_min = timer0_min_;
+    static constexpr uint32_t timer0_max = timer0_max_;
 #endif
 private:
-    uint32_t Timer0;
-    uint32_t MAC_add1;
-    uint32_t MAC_add2;
-    uint32_t MAC_add3;
-    uint32_t MAC_add4;
-    uint32_t MAC_add5;
-    uint32_t MAC_add6;
+    uint32_t timer0;
+    uint32_t mac_add1;
+    uint32_t mac_add2;
+    uint32_t mac_add3;
+    uint32_t mac_add4;
+    uint32_t mac_add5;
+    uint32_t mac_add6;
     uint32_t year;
     uint32_t month;
     uint32_t day;
@@ -54,15 +54,15 @@ private:
     uint32_t key;
 
 public:
-    Parameters5Gen() : Timer0(Timer0Min), key(0x2fff) {}
-    void set_MAC_add(uint32_t m1, uint32_t m2, uint32_t m3, 
+    Parameters5Gen() : timer0(timer0_min), key(0x2fff) {}
+    void set_mac_add(uint32_t m1, uint32_t m2, uint32_t m3, 
             uint32_t m4, uint32_t m5, uint32_t m6) {
-        MAC_add1 = m1;
-        MAC_add2 = m2;
-        MAC_add3 = m3;
-        MAC_add4 = m4;
-        MAC_add5 = m5;
-        MAC_add6 = m6;
+        mac_add1 = m1;
+        mac_add2 = m2;
+        mac_add3 = m3;
+        mac_add4 = m4;
+        mac_add5 = m5;
+        mac_add6 = m6;
     }
 
     void set_year(uint32_t yy) { year = yy; }
@@ -75,14 +75,14 @@ public:
 
 
     void set_key(uint32_t key_) { key = key_; }
-    void set_Timer0(uint32_t tt) { Timer0 = tt; }
+    void set_timer0(uint32_t tt) { timer0 = tt; }
 
-    uint32_t get_MAC_add1() const { return MAC_add1; }
-    uint32_t get_MAC_add2() const { return MAC_add2; }
-    uint32_t get_MAC_add3() const { return MAC_add3; }
-    uint32_t get_MAC_add4() const { return MAC_add4; }
-    uint32_t get_MAC_add5() const { return MAC_add5; }
-    uint32_t get_MAC_add6() const { return MAC_add6; }
+    uint32_t get_mac_add1() const { return mac_add1; }
+    uint32_t get_mac_add2() const { return mac_add2; }
+    uint32_t get_mac_add3() const { return mac_add3; }
+    uint32_t get_mac_add4() const { return mac_add4; }
+    uint32_t get_mac_add5() const { return mac_add5; }
+    uint32_t get_mac_add6() const { return mac_add6; }
 
     uint32_t get_year() const { return year; }
     uint32_t get_month() const { return month; }
@@ -102,14 +102,14 @@ public:
     uint32_t get_nazo4() const { return nazo4; }
     uint32_t get_nazo5() const { return nazo5; }
 
-    uint32_t get_VCount() const { return VCount; }
-    uint32_t get_Timer0() const { return Timer0; }
-    uint32_t get_GxStat() const { return GxStat; }
-    uint32_t get_Frame() const { return Frame; }
+    uint32_t get_vcount() const { return vcount; }
+    uint32_t get_timer0() const { return timer0; }
+    uint32_t get_gxstat() const { return gxstat; }
+    uint32_t get_frame() const { return frame; }
     uint32_t get_key() const { return key; }
 
-    uint32_t get_Timer0Min() const { return Timer0Min; }
-    uint32_t get_Timer0Max() const { return Timer0Max; }
+    uint32_t get_timer0_min() const { return timer0_min; }
+    uint32_t get_timer0_max() const { return timer0_max; }
 
 
 };
