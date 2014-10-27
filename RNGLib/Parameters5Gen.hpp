@@ -11,6 +11,19 @@ template<uint32_t nazo1_, uint32_t nazo2_, uint32_t nazo3_, uint32_t nazo4_, uin
          uint32_t VCount_, uint32_t GxStat_, uint32_t Frame_, uint32_t Timer0Min_, uint32_t Timer0Max_>
 class Parameters5Gen {
 public:
+#ifdef _MSC_VER
+    static const uint32_t nazo1 = nazo1_;
+    static const uint32_t nazo2 = nazo2_;
+    static const uint32_t nazo3 = nazo3_;
+    static const uint32_t nazo4 = nazo4_;
+    static const uint32_t nazo5 = nazo5_;
+
+    static const uint32_t VCount = VCount_;
+    static const uint32_t GxStat = GxStat_;
+    static const uint32_t Frame  = Frame_;
+    static const uint32_t Timer0Min = Timer0Min_;
+    static const uint32_t Timer0Max = Timer0Max_;
+#else
     static constexpr uint32_t nazo1 = nazo1_;
     static constexpr uint32_t nazo2 = nazo2_;
     static constexpr uint32_t nazo3 = nazo3_;
@@ -22,8 +35,9 @@ public:
     static constexpr uint32_t Frame  = Frame_;
     static constexpr uint32_t Timer0Min = Timer0Min_;
     static constexpr uint32_t Timer0Max = Timer0Max_;
+#endif
 private:
-    uint32_t Timer0 = Timer0Min_;
+    uint32_t Timer0;
     uint32_t MAC_add1;
     uint32_t MAC_add2;
     uint32_t MAC_add3;
@@ -37,9 +51,10 @@ private:
     uint32_t minute;
     uint32_t sec;
 
-    uint32_t key = 0x2fff;
+    uint32_t key;
 
 public:
+    Parameters5Gen() : Timer0(Timer0Min), key(0x2fff) {}
     void set_MAC_add(uint32_t m1, uint32_t m2, uint32_t m3, 
             uint32_t m4, uint32_t m5, uint32_t m6) {
         MAC_add1 = m1;

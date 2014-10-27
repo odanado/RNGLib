@@ -9,17 +9,19 @@
 namespace RNGLib {
 class Calc5GenSeed {
 private:
-    uint32_t to_uint32_little_endian(uint32_t val) const {
-        return ((val&0xff)<<24) | (((val>>8)&0xff)<<16) |
-            (((val>>16)&0xff)<<8) | ((val>>24)&0xff);
-    }
+#ifdef _MSC_VER
+    static const uint32_t K0 = 0x5a827999;
+    static const uint32_t K1 = 0x6ed9eba1;
+    static const uint32_t K2 = 0x8f1bbcdc;
+    static const uint32_t K3 = 0xca62c1d6;
 
-    uint32_t to_BCD(uint32_t val) const {
-        return ((val/10)<<4) | (val%10);
-    }
-    uint32_t sha1_circular_shift(uint32_t bits, uint32_t word) const {
-        return ((word << bits) | (word >> (32-bits)));
-    }
+    static const uint32_t H0 = 0x67452301;
+    static const uint32_t H1 = 0xefcdab89;
+    static const uint32_t H2 = 0x98badcfe;
+    static const uint32_t H3 = 0x10325476;
+    static const uint32_t H4 = 0xc3d2e1f0;
+    uint32_t W[80];
+#else
     static constexpr uint32_t K0 = 0x5a827999;
     static constexpr uint32_t K1 = 0x6ed9eba1;
     static constexpr uint32_t K2 = 0x8f1bbcdc;
@@ -31,6 +33,19 @@ private:
     static constexpr uint32_t H3 = 0x10325476;
     static constexpr uint32_t H4 = 0xc3d2e1f0;
     uint32_t W[80];
+#endif
+
+    uint32_t to_uint32_little_endian(uint32_t val) const {
+        return ((val&0xff)<<24) | (((val>>8)&0xff)<<16) |
+            (((val>>16)&0xff)<<8) | ((val>>24)&0xff);
+    }
+
+    uint32_t to_BCD(uint32_t val) const {
+        return ((val/10)<<4) | (val%10);
+    }
+    uint32_t sha1_circular_shift(uint32_t bits, uint32_t word) const {
+        return ((word << bits) | (word >> (32-bits)));
+    }
 public:
     template<class T>
     uint64_t operator() (const T& paramers) {
