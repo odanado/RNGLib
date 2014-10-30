@@ -4,8 +4,8 @@
  */
 
 
-#ifndef INCLUDED_LCG_GNUC_HPP
-#define INCLUDED_LCG_GNUC_HPP
+#ifndef INCLUDED_LCG_HPP
+#define INCLUDED_LCG_HPP
 #include <cstdint>
 #include <type_traits>
 #include "Config.hpp"
