@@ -32,37 +32,37 @@ public:
     }
 
     DateTimeIterator& operator++() {
-        if(dateTime.sec <= endDateTime.sec) {
+        if(dateTime.sec < endDateTime.sec) {
             ++dateTime.sec;
             return *this;
         }
         dateTime.sec = beginDateTime.sec;
 
-        if(dateTime.minute <= endDateTime.minute) {
+        if(dateTime.minute < endDateTime.minute) {
             ++dateTime.minute;
             return *this;
         }
         dateTime.minute = beginDateTime.minute;
 
-        if(dateTime.hour <= endDateTime.hour) {
+        if(dateTime.hour < endDateTime.hour) {
             ++dateTime.hour;
             return *this;
         }
         dateTime.hour = beginDateTime.hour;
 
-        if(dateTime.day <= endDateTime.day) {
+        if(dateTime.day < endDateTime.day) {
             ++dateTime.day;
             return *this;
         }
         dateTime.day = beginDateTime.day;
 
-        if(dateTime.month <= endDateTime.month) {
+        if(dateTime.month < endDateTime.month) {
             ++dateTime.month;
             return *this;
         }
         dateTime.month = beginDateTime.month;
 
-        if(dateTime.year <= endDateTime.year) {
+        if(dateTime.year < endDateTime.year) {
             dateTime.year++;
             return *this;
         }
