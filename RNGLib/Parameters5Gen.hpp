@@ -5,6 +5,7 @@
 #ifndef INCLUDED_PARAMETERS_5GEN_HPP
 #define INCLUDED_PARAMETERS_5GEN_HPP
 #include <cstdint>
+#include "DateTime/DateTime.hpp"
 
 namespace RNGLib {
 template<uint32_t nazo1_, uint32_t nazo2_, uint32_t nazo3_, uint32_t nazo4_, uint32_t nazo5_,
@@ -72,6 +73,15 @@ public:
     void set_hour(uint32_t hh) { hour = hh; }
     void set_minute(uint32_t mi) { minute = mi; }
     void set_sec(uint32_t se) { sec = se; }
+
+    void set_datetime(const DateTime& dateTime) {
+        year   = dateTime.get_year();
+        month  = dateTime.get_month();
+        day    = dateTime.get_day();
+        hour   = dateTime.get_hour();
+        minute = dateTime.get_minute();
+        sec    = dateTime.get_sec();
+    }
 
 
     void set_key(uint32_t key_) { key = key_; }
