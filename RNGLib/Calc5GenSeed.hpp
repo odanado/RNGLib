@@ -5,35 +5,22 @@
 #ifndef INCLUDED_CALC_5GEN_SEED_HPP
 #define INCLUDED_CALC_5GEN_SEED_HPP
 #include <cstdint>
+#include "Config.hpp"
 
 namespace RNGLib {
 class Calc5GenSeed {
 private:
-#ifdef _MSC_VER
-    static const uint32_t K0 = 0x5a827999;
-    static const uint32_t K1 = 0x6ed9eba1;
-    static const uint32_t K2 = 0x8f1bbcdc;
-    static const uint32_t K3 = 0xca62c1d6;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t K0 = 0x5a827999;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t K1 = 0x6ed9eba1;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t K2 = 0x8f1bbcdc;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t K3 = 0xca62c1d6;
 
-    static const uint32_t H0 = 0x67452301;
-    static const uint32_t H1 = 0xefcdab89;
-    static const uint32_t H2 = 0x98badcfe;
-    static const uint32_t H3 = 0x10325476;
-    static const uint32_t H4 = 0xc3d2e1f0;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H0 = 0x67452301;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H1 = 0xefcdab89;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H2 = 0x98badcfe;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H3 = 0x10325476;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H4 = 0xc3d2e1f0;
     uint32_t W[80];
-#else
-    static constexpr uint32_t K0 = 0x5a827999;
-    static constexpr uint32_t K1 = 0x6ed9eba1;
-    static constexpr uint32_t K2 = 0x8f1bbcdc;
-    static constexpr uint32_t K3 = 0xca62c1d6;
-
-    static constexpr uint32_t H0 = 0x67452301;
-    static constexpr uint32_t H1 = 0xefcdab89;
-    static constexpr uint32_t H2 = 0x98badcfe;
-    static constexpr uint32_t H3 = 0x10325476;
-    static constexpr uint32_t H4 = 0xc3d2e1f0;
-    uint32_t W[80];
-#endif
 
     uint32_t to_uint32_little_endian(uint32_t val) const {
         return ((val&0xff)<<24) | (((val>>8)&0xff)<<16) |
