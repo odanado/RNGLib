@@ -93,13 +93,13 @@ private:
 
 
 public:
-    RNGLIB_CONSTEXPR_OR_CONST LCG() { }
+    RNGLIB_CONSTEXPR LCG() { }
     RNGLIB_STATIC_CONSTEXPR_OR_CONST UIntType mul = mul_;
     RNGLIB_STATIC_CONSTEXPR_OR_CONST UIntType add = add_;
 
     RNGLIB_STATIC_CONSTEXPR_OR_CONST UIntType mask = mask_;
 
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST UIntType div = calc_inverse(mul, mask);
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST UIntType div = calc_inverse_tmp<UIntType, mul, mask>::value;
     RNGLIB_STATIC_CONSTEXPR_OR_CONST UIntType sub = ~(div * add) + 1;
 
     RNGLIB_STATIC_CONSTEXPR UIntType next(UIntType s) {
