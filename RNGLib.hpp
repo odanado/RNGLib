@@ -11,4 +11,8 @@
 #include "RNGLib/Parameters5Gen.hpp"
 #include "RNGLib/MT.hpp"
 
+#include "RNGLib/DateTime/DateTime.hpp"
+#include "RNGLib/DateTime/DateTimeRange.hpp"
+#include "RNGLib/DateTime/DateTimeIterator.hpp"
+
 #endif
