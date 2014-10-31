@@ -39,7 +39,7 @@ public:
         uint64_t seed = 0;
         uint32_t A, B, C, D, E;
         uint32_t temp;
-        uint32_t i,t;
+        uint32_t t;
         W[0] = to_uint32_little_endian(paramers.get_nazo1());
         W[1] = to_uint32_little_endian(paramers.get_nazo2());
         W[2] = to_uint32_little_endian(paramers.get_nazo3());
