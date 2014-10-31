@@ -131,13 +131,9 @@ public:
             A = temp;
         }
 
-        for(i = 0; i < 32; i+=8) {
-            seed |= (((H1+B) >> i) & 0xff) << (24 - i);
-        }
+        seed = to_uint32_little_endian(H1+B);
         seed <<= 32;
-        for(i = 0; i < 32; i+=8) {
-            seed |= (((H0+A) >> i) & 0xff) << (24 - i);
-        }
+        seed |= to_uint32_little_endian(H0+A);
 
         return seed;
     }
