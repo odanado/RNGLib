@@ -6,7 +6,6 @@
 
 #ifndef INCLUDED_LCG_HPP
 #define INCLUDED_LCG_HPP
-#include <cstdint>
 #include <type_traits>
 #include "Config.hpp"
 
@@ -122,11 +121,11 @@ public:
     } 
 
 };
-typedef LCG<uint64_t, 0x5D588B656C078965, 0x269EC3, 0xFFFFFFFFFFFFFFFF> LCG5Gen;
-typedef LCG<uint32_t, 0x41C64E6D, 0x6073, 0xFFFFFFFF> LCG4Gen;
-typedef LCG<uint32_t, 0x41C64E6D, 0x6073, 0xFFFFFFFF> LCG3Gen;
+typedef LCG<u64, 0x5D588B656C078965, 0x269EC3, 0xFFFFFFFFFFFFFFFF> LCG5Gen;
+typedef LCG<u32, 0x41C64E6D, 0x6073, 0xFFFFFFFF> LCG4Gen;
+typedef LCG<u32, 0x41C64E6D, 0x6073, 0xFFFFFFFF> LCG3Gen;
 
-typedef LCG<uint64_t, 0x5D583D6D6C078979, 0x26A693, 0xFFFFFFFFFFFFFFFF> LCG5GenDaily;
+typedef LCG<u64, 0x5D583D6D6C078979, 0x26A693, 0xFFFFFFFFFFFFFFFF> LCG5GenDaily;
 
 } // end RNGLib
 

@@ -6,6 +6,8 @@
 #ifndef INCLUDED_DATE_TIME_RANGE_HPP
 #define INCLUDED_DATE_TIME_RANGE_HPP
 
+#include "../Config.hpp"
+
 #include "DateTime.hpp"
 #include "DateTimeIterator.hpp"
 
@@ -18,32 +20,32 @@ private:
     DateTime endDateTime;
 public:
 
-    void set_year(uint32_t begin_, uint32_t end_) {
+    void set_year(u32 begin_, u32 end_) {
         beginDateTime.year = begin_;
         endDateTime.year = end_;
     }
 
-    void set_month(uint32_t begin_, uint32_t end_) {
+    void set_month(u32 begin_, u32 end_) {
         beginDateTime.month = begin_;
         endDateTime.month = end_;
     }
 
-    void set_day(uint32_t begin_, uint32_t end_) {
+    void set_day(u32 begin_, u32 end_) {
         beginDateTime.day = begin_;
         endDateTime.day = end_;
     }
 
-    void set_hour(uint32_t begin_, uint32_t end_) {
+    void set_hour(u32 begin_, u32 end_) {
         beginDateTime.hour = begin_;
         endDateTime.hour = end_;
     }
 
-    void set_minute(uint32_t begin_, uint32_t end_) {
+    void set_minute(u32 begin_, u32 end_) {
         beginDateTime.minute = begin_;
         endDateTime.minute = end_;
     }
 
-    void set_sec(uint32_t begin_, uint32_t end_) {
+    void set_sec(u32 begin_, u32 end_) {
         beginDateTime.sec = begin_;
         endDateTime.sec = end_;
     }

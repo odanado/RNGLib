@@ -4,42 +4,41 @@
  */
 #ifndef INCLUDED_CALC_5GEN_SEED_HPP
 #define INCLUDED_CALC_5GEN_SEED_HPP
-#include <cstdint>
 #include "Config.hpp"
 
 namespace RNGLib {
 class Calc5GenSeed {
 private:
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t K0 = 0x5a827999;
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t K1 = 0x6ed9eba1;
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t K2 = 0x8f1bbcdc;
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t K3 = 0xca62c1d6;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 K0 = 0x5a827999;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 K1 = 0x6ed9eba1;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 K2 = 0x8f1bbcdc;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 K3 = 0xca62c1d6;
 
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H0 = 0x67452301;
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H1 = 0xefcdab89;
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H2 = 0x98badcfe;
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H3 = 0x10325476;
-    RNGLIB_STATIC_CONSTEXPR_OR_CONST uint32_t H4 = 0xc3d2e1f0;
-    uint32_t W[80];
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 H0 = 0x67452301;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 H1 = 0xefcdab89;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 H2 = 0x98badcfe;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 H3 = 0x10325476;
+    RNGLIB_STATIC_CONSTEXPR_OR_CONST u32 H4 = 0xc3d2e1f0;
+    u32 W[80];
 
-    uint32_t to_uint32_little_endian(uint32_t val) const {
+    u32 to_uint32_little_endian(u32 val) const {
         return ((val&0xff)<<24) | (((val>>8)&0xff)<<16) |
             (((val>>16)&0xff)<<8) | ((val>>24)&0xff);
     }
 
-    uint32_t to_bcd(uint32_t val) const {
+    u32 to_bcd(u32 val) const {
         return ((val/10)<<4) | (val%10);
     }
-    uint32_t sha1_circular_shift(uint32_t bits, uint32_t word) const {
+    u32 sha1_circular_shift(u32 bits, u32 word) const {
         return ((word << bits) | (word >> (32-bits)));
     }
 public:
     template<class T>
-    uint64_t operator() (const T& paramers) {
-        uint64_t seed = 0;
-        uint32_t A, B, C, D, E;
-        uint32_t temp;
-        uint32_t t;
+    u64 operator() (const T& paramers) {
+        u64 seed = 0;
+        u32 A, B, C, D, E;
+        u32 temp;
+        u32 t;
         W[0] = to_uint32_little_endian(paramers.get_nazo1());
         W[1] = to_uint32_little_endian(paramers.get_nazo2());
         W[2] = to_uint32_little_endian(paramers.get_nazo3());

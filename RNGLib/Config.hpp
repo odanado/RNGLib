@@ -6,6 +6,8 @@
 #ifndef INCLUDED_CONFIG_HPP
 #define INCLUDED_CONFIG_HPP
 
+#include <cstdint>
+
 #ifdef _MSC_VER
 
 #define RNGLIB_CONSTEXPR 
@@ -22,3 +24,9 @@
 
 #endif
 #endif
+
+namespace RNGLib {
+    typedef uint64_t u64;
+    typedef uint32_t u32;
+} // end RNGLib
+
