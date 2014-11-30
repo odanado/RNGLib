@@ -27,6 +27,7 @@ private:
     u64 execute_extra(u64);
 public:
 
+    CalcOffset();
     CalcOffset(bool, bool, bool, bool);
 
     u64 get_seed() const;

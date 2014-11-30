@@ -10,6 +10,7 @@ const u32 CalcOffset::PROBABILITY_TABLE[6][5] = {
         {  25, 30, 50,100,100 },
         {  20, 25, 33, 50,100 },
         { 100,100,100,100,100 } } ;
+CalcOffset::CalcOffset() : is_bw1(true), has_continued(true), exist_data(true), exist_memory_link(true) { }
 
 CalcOffset::CalcOffset(bool is_bw1, bool has_continued, bool exist_data, bool exist_memory_link) : is_bw1(is_bw1), has_continued(has_continued), exist_data(exist_data), exist_memory_link(exist_memory_link) { }
 
