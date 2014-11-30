@@ -73,6 +73,20 @@ public:
     void set_key(u32 key_) { key = key_; }
     void set_timer0(u32 tt) { timer0 = tt; }
 
+    void set_vcount(u32 vcount_) { vcount = vcount_; }
+    void set_gxstat(u32 gxstat_) { gxstat = gxstat_; }
+    void set_frame(u32 frame_) { frame = frame_; }
+
+    void set_nazo1(u32 nazo1_) { nazo1 = nazo1_; }
+    void set_nazo2(u32 nazo2_) { nazo2 = nazo2_; }
+    void set_nazo3(u32 nazo3_) { nazo3 = nazo3_; }
+    void set_nazo4(u32 nazo4_) { nazo4 = nazo4_; }
+    void set_nazo5(u32 nazo5_) { nazo5 = nazo5_; }
+
+    void set_timer0_min(u32 timer0_min_) { timer0_min = timer0_min_; }
+    void set_timer0_max(u32 timer0_max_) { timer0_max = timer0_max_; }
+
+
     u32 get_mac_add1() const { return mac_add1; }
     u32 get_mac_add2() const { return mac_add2; }
     u32 get_mac_add3() const { return mac_add3; }
