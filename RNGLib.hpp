@@ -12,6 +12,7 @@
 #include "RNGLib/ConstantParameters5Gen.hpp"
 #include "RNGLib/ROMType.hpp"
 #include "RNGLib/MT.hpp"
+#include "RNGLib/CalcOffset.hpp"
 
 #include "RNGLib/DateTime/DateTime.hpp"
 #include "RNGLib/DateTime/DateTimeRange.hpp"
