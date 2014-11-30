@@ -9,6 +9,8 @@
 #include "RNGLib/LCG.hpp"
 #include "RNGLib/Calc5GenSeed.hpp"
 #include "RNGLib/Parameters5Gen.hpp"
+#include "RNGLib/ConstantParameters5Gen.hpp"
+#include "RNGLib/ROMType.hpp"
 #include "RNGLib/MT.hpp"
 
 #include "RNGLib/DateTime/DateTime.hpp"
