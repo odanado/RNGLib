@@ -6,6 +6,9 @@
 #ifndef INCLUDED_DATE_TIME_ITERATOR_HPP
 #define INCLUDED_DATE_TIME_ITERATOR_HPP
 #include "DateTime.hpp"
+#include "../Config.hpp"
+
+#include <algorithm>
 
 namespace RNGLib {
 
@@ -14,6 +17,8 @@ private:
     DateTime dateTime;
     DateTime beginDateTime;
     DateTime endDateTime;
+    const RNGLib::u32 month_ends[13] = 
+                { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 public:
     DateTimeIterator(DateTime dateTime_, DateTime beginDateTime_, DateTime endDateTime_) :
         dateTime(dateTime_), beginDateTime(beginDateTime_), endDateTime(endDateTime_) { }
@@ -50,7 +55,8 @@ public:
         }
         dateTime.hour = beginDateTime.hour;
 
-        if(dateTime.day < endDateTime.day) {
+        if(dateTime.day < 
+                std::min(month_ends[dateTime.month], endDateTime.day)) {
             ++dateTime.day;
             return *this;
         }
